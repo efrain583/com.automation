@@ -17,8 +17,7 @@ import com.automation.util.UtilKit;
 public class MyStoreBase {
 
 	WebDriver driver;
-	// String myBrowser = new String("firefox");
-	String myBrowser = new String("IE");
+	String myBrowser = new String("firefox");
 
 	String application = "com.automation";
 	String project = application; // In this case the project is the same name
