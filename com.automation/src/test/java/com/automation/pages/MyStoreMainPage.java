@@ -93,6 +93,8 @@ public class MyStoreMainPage {
 	 }
 	 
 	 public WebElement createSubmitButtom(){
+		 UtilKit.waitForElement(createSubmitButtomL, driver, "Displayed", 2);
+		 UtilKit.scrollToElement(driver.findElement(createSubmitButtomL), driver);
 		 return driver.findElement(createSubmitButtomL);
 	 }
 	 
@@ -209,14 +211,18 @@ public class MyStoreMainPage {
 
 	 }
 
-	 public boolean verifyRegisterPage(){
+	public boolean verifyRegisterPage(){
+		if(UtilKit.waitForPageToLoad(driver, 10) == true){
 		 ArrayList<WebElement> myElements = (ArrayList<WebElement>)driver.findElements(submitAccountButtomL);
 		 if(myElements.isEmpty()) 
 			 return false;
 		 else
 			 return true;
+			
+		}
+			return false;
 	 }
-	 
+
 	 /*
 	  * return True If the Mr. Gender only is selected 
 	  */
@@ -247,10 +253,10 @@ public class MyStoreMainPage {
 			
 			signInLink().click();
 			
-			UtilKit.suspendAction(1000);
 			Assert.assertTrue(verifyLoginPage(), "Unable to navegate to login Page");
+			UtilKit.suspendAction(3000);
 
-			UtilKit.waitForElement(emailTextBox(), "Displayed", 5);
+			UtilKit.waitForElement(emailTextBox(), "Displayed", 3);
 			emailTextBox().sendKeys("efrain583@yahoo.com");
 			passwdTextBox().sendKeys("Eframy12");
 			submitLoginButtom().click();

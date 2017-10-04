@@ -17,12 +17,14 @@ public class MyStoreMain extends MyStoreBase {
 		MSMP.signInLink().click();
 		
 		Assert.assertTrue(MSMP.verifyLoginPage(), "Unable to navegate to login Page ... ");
+		UtilKit.suspendAction(3000);
 		
 		MSMP.emailTextBox().sendKeys(email);
 		MSMP.passwdTextBox().sendKeys(passwd);
 		MSMP.submitLoginButtom().click();
 		
 		System.out.println("Title : " + driver.getTitle());
+		UtilKit.suspendAction(1000);
 		Assert.assertTrue(MSMP.verifyWelcomeMessage(), "Unabled to Login ");
 		
 		MSMP.signOutLink().click(); // For now until delete cookies work in IE
@@ -39,11 +41,16 @@ public class MyStoreMain extends MyStoreBase {
 		MSMP.signInLink().click();
 		
 		Assert.assertTrue(MSMP.verifyLoginPage(), "Unable to navegate to login Page... ");
+		UtilKit.suspendAction(3000);
 		
-		MSMP.createEmailTextBox().sendKeys(email);
+		//MSMP.createEmailTextBox().sendKeys(email);
+		UtilKit.javaScriptSendKeys(driver, MSMP.createEmailTextBox(), email); // Optional here
+
+		//MSMP.createSubmitButtom().click();
+		UtilKit.javaScriptClick(driver, MSMP.createSubmitButtom()); // Optional here
 		MSMP.createSubmitButtom().click();
-		
-		Assert.assertTrue(MSMP.verifyExistingMessge(), "Unabled to Verify new User exists ... ");
+		UtilKit.suspendAction(1000);
+		Assert.assertTrue(MSMP.verifyExistingMessge(), "Unabled to Verify new User exists ... " + email);
 	}
 		
 	@Test(enabled = true, dataProvider = "registerDataProvider")
@@ -56,6 +63,7 @@ public class MyStoreMain extends MyStoreBase {
 		MSMP.signInLink().click();
 		
 		Assert.assertTrue(MSMP.verifyLoginPage(), "Unable to navegate to login Page... ");
+		UtilKit.suspendAction(1000);
 		
 		MSMP.createEmailTextBox().sendKeys(email);
 		MSMP.createSubmitButtom().click();
@@ -98,7 +106,7 @@ public class MyStoreMain extends MyStoreBase {
 		
 	}
 
-	@Test(enabled = true, dataProvider = "abortRegisterDataProvider")
+	@Test(enabled = false, dataProvider = "abortRegisterDataProvider")
 	public void testAbortRegister(String email, String firstName, String lastName, String createPasswd,
 								String dateDays, String dateMonths, String dateYears,
 								String address1, String city, String state, String postCode,

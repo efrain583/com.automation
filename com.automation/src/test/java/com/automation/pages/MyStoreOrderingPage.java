@@ -16,7 +16,7 @@ public class MyStoreOrderingPage {
 	Actions mouseActions;
 	
 	// a displayed product item holds the add to cart locator string and By 
-	private class ProductItem {
+	public class ProductItem {
 		Float price;
 		int productId;
 		String productName;
@@ -97,6 +97,8 @@ public class MyStoreOrderingPage {
 		
 	}
 	public WebElement termsCheckBox(){
+		UtilKit.waitForElement(termsCheckBoxL, driver, "Displayed", 2);
+		UtilKit.scrollToElement(driver.findElement(termsCheckBoxL), driver);
 		return driver.findElement(termsCheckBoxL);
 	}
 

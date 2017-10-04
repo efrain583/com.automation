@@ -17,7 +17,6 @@ import com.automation.util.UtilKit;
 public class MyStoreBase {
 
 	WebDriver driver;
-	String myBrowser = new String("firefox");
 
 	String application = "com.automation";
 	String project = application; // In this case the project is the same name
@@ -28,10 +27,9 @@ public class MyStoreBase {
 	// This optional parameter is set in the testng.xml file
 	@Parameters("browser")
 	@BeforeClass
-	public void startClass(@Optional("IE") String browser) {
-		myBrowser = browser;
-		driver = UtilKit.initTest(project, application, myBrowser, getClass().getName());
-		if (myBrowser.equalsIgnoreCase("IE")) {
+	public void startClass(@Optional("firefox") String browser) {
+		driver = UtilKit.initTest(project, application, browser, getClass().getName());
+		if (browser.equalsIgnoreCase("IE")) {
 			System.out.println("INITIAL URL :" + driver.getCurrentUrl());
 			if (!driver.getCurrentUrl().contains("authentication")) {
 				// TODO This is done because IE is not clearing cookies properly

@@ -16,7 +16,6 @@ public class MyStoreOrdering extends MyStoreBase {
 
 		MyStoreMainPage MSMP = new MyStoreMainPage(driver);
 		MyStoreOrderingPage MSOP = new MyStoreOrderingPage(driver);
-
 		MSMP.defaultSignIn();
 		Assert.assertTrue(MSMP.verifyWelcomeMessage(), "Unabled to Login ");
 		
@@ -32,13 +31,14 @@ public class MyStoreOrdering extends MyStoreBase {
 
 			MSOP.dressesImage().click();
 			MSOP.summerDressesImage().click();
-			UtilKit.suspendAction(1000); // needed this here
+			UtilKit.suspendAction(2000); // needed this here
 			//MSOP.addToCartByIndex(Integer.parseInt(index)).click(); 
 			MSOP.addToCartByIndex(2).click(); // Add to Cart the item in the first column
 			MSOP.proceedToCheckOutButtom().click(); // At the Dialog Window proceed to check out
 			MSOP.proceedToCheckOutButtom2().click(); // Do it again on the next page
 			MSOP.proceedToCheckOutButtom3().click(); // Do it again on the address confirmation page
 			MSOP.termsCheckBox().click(); // Check the terms of service agreement box
+			UtilKit.suspendAction(1000);
 			MSOP.proceedToCheckOutButtom4().click(); // Do it again on the Delivery Carrier confirmation page  
 			MSOP.payByWireLink().click();
 			MSOP.confirmOrderButtonL().click();
@@ -83,6 +83,7 @@ public class MyStoreOrdering extends MyStoreBase {
 			MSOP.proceedToCheckOutButtom2().click(); // Do it again on the next page
 			MSOP.proceedToCheckOutButtom3().click(); // Do it again on the address confirmation page
 			MSOP.termsCheckBox().click(); // Check the terms of service agreement box
+			UtilKit.suspendAction(1000);
 			MSOP.proceedToCheckOutButtom4().click(); // Do it again on the Delivery Carrier confirmation page  
 			MSOP.payByWireLink().click();
 			MSOP.confirmOrderButtonL().click();
@@ -128,6 +129,7 @@ public class MyStoreOrdering extends MyStoreBase {
 			MSOP.proceedToCheckOutButtom2().click(); // Do it again on the next page
 			MSOP.proceedToCheckOutButtom3().click(); // Do it again on the address confirmation  page
 			MSOP.termsCheckBox().click(); // Check the terms of service  agreement box
+			UtilKit.suspendAction(2000);
 			MSOP.proceedToCheckOutButtom4().click(); // Do it again on the Delivery Carrier confirmation page
 			MSOP.payByWireLink().click();
 			MSOP.confirmOrderButtonL().click();

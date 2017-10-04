@@ -29,6 +29,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -552,17 +553,25 @@ public class UtilKit {
 		float currentWait = (float) 0.0;
 		System.out.println("INFO : in " + Thread.currentThread().getStackTrace()[1].getMethodName());
 		while (currentWait < (float)waitPeriod ) {
+			
+			String pageState = null;
 
 			// =================================================================
-			String pageState = (String) UtilKit.executeJavascript(driver, "return document.readyState");
+			try{
+				pageState = (String) UtilKit.executeJavascript(driver, "return document.readyState");
+			}
+			catch (JavascriptException e){
+				
+			UtilKit.suspendAction(250);;
+			currentWait = currentWait + (float)0.25;
+			continue;
+			}
 			System.out.println("INFO: Page State : " + pageState);
 			if(pageState.equals("complete")){
 				System.out.println("INFO: Current Page Title : " + driver.getTitle());
 				return true;
 
 			}
-			UtilKit.suspendAction(250);;
-			currentWait = currentWait + (float)0.25;
 		}
 		
 		System.out.println(" WARNNG : In " + Thread.currentThread().getStackTrace()[1].getMethodName() + "Wait for page to load expired");
@@ -1073,10 +1082,15 @@ public class UtilKit {
 		 */
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript(javaScript, element);
+		UtilKit.logger.info("javaScript Excecuted : " + "|" + javaScript + "|");
 	}
 	
 	public static void javaScriptClick(WebDriver driver, WebElement element){
 		UtilKit.executeJavascriptOnElement(driver, "arguments[0].click();", element);
+		
+	}
+	public static void javaScriptSendKeys(WebDriver driver, WebElement element, String keysString){
+		UtilKit.executeJavascriptOnElement(driver, "arguments[0].setAttribute('value'," + "'" + keysString + "')", element);
 		
 	}
 
