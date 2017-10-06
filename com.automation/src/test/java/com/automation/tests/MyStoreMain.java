@@ -106,7 +106,7 @@ public class MyStoreMain extends MyStoreBase {
 		
 	}
 
-	@Test(enabled = false, dataProvider = "abortRegisterDataProvider")
+	@Test(enabled = true, dataProvider = "abortRegisterDataProvider")
 	public void testAbortRegister(String email, String firstName, String lastName, String createPasswd,
 								String dateDays, String dateMonths, String dateYears,
 								String address1, String city, String state, String postCode,

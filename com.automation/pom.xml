@@ -44,10 +44,12 @@
 	</profiles>
 
 	<dependencies>
+	
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.3.1</version>
+    		<groupId>org.seleniumhq.selenium</groupId>
+    		<artifactId>selenium-java</artifactId>
+    		<version>3.5.3</version>
 		</dependency>
 		
 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->

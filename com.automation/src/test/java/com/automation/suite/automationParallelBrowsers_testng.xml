@@ -9,11 +9,11 @@
       <class name="com.automation.tests.MyStoreOrdering"/>
     </classes>
   </test> <!-- automationFirefox -->
-  <test name="automationIE">
-  <parameter name="browser" value="IE"/>
-    <classes>
-      <class name="com.automation.tests.MyStoreMain"/>
-      <class name="com.automation.tests.MyStoreOrdering"/>
-    </classes>
-  </test> automationIE
+<!--   <test name="automationIE"> -->
+<!--   <parameter name="browser" value="IE"/> -->
+<!--     <classes> -->
+<!--       <class name="com.automation.tests.MyStoreMain"/> -->
+<!--       <class name="com.automation.tests.MyStoreOrdering"/> -->
+<!--     </classes> -->
+<!--   </test> automationIE -->
 </suite> <!-- automationParallelBrowsers -->

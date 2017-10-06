@@ -95,8 +95,9 @@ public class UtilKit {
 			caps.setCapability("browserName", browser);
 			//caps.setCapability("logLevel", "DEBUG");
 			caps.setCapability("requireWindowFocus", true);
-			version = getConfigProp("BROWSER_VERSION");
-			caps.setCapability("version", version);
+// Skip the firefox version for now
+//			version = getConfigProp("BROWSER_VERSION");
+//			caps.setCapability("version", version);
 			driver = new FirefoxDriver(caps);
 			driver.manage().deleteAllCookies();
 			// navegate to application Url
@@ -259,7 +260,7 @@ public class UtilKit {
 	public static void terminateTest(WebDriver driver) {
 		driver.manage().deleteAllCookies();
 		driver.close(); // Close Windows
-		driver.quit(); // End Session Safely
+		//driver.quit(); // End Session Safely
 	}
 
 	// Take the Screen Shot and capture in a file
