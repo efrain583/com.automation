@@ -96,8 +96,9 @@ public class UtilKit {
 			//caps.setCapability("logLevel", "DEBUG");
 			caps.setCapability("requireWindowFocus", true);
 // Skip the firefox version for now
-//			version = getConfigProp("BROWSER_VERSION");
+			version = getConfigProp("BROWSER_VERSION");
 //			caps.setCapability("version", version);
+			caps.setVersion(version);
 			driver = new FirefoxDriver(caps);
 			driver.manage().deleteAllCookies();
 			// navegate to application Url
