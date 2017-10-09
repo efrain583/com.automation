@@ -15,5 +15,5 @@
 			<class name="com.automation.tests.MyStoreMain" />
 			<class name="com.automation.tests.MyStoreOrdering" />
 		</classes>
-	</test> automationIE
+	</test> <!-- automationIE -->
 </suite> <!-- automationParallelBrowsers -->
