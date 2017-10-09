@@ -98,7 +98,7 @@ public class UtilKit {
 // Skip the firefox version for now
 			version = getConfigProp("BROWSER_VERSION");
 //			caps.setCapability("version", version);
-			caps.setVersion(version);
+//			caps.setVersion(version);
 			driver = new FirefoxDriver(caps);
 			driver.manage().deleteAllCookies();
 			// navegate to application Url
@@ -139,8 +139,9 @@ public class UtilKit {
 		driver.manage().timeouts().pageLoadTimeout(Long.valueOf(getConfigProp("PAGE_LOAD_WAIT")), TimeUnit.SECONDS);
 		
 		UtilKit.waitForPageToLoad(driver, 5);
-		System.out.println( "Browser : " + browser + " Version : " + version );
+		System.out.println( "Browser : " + browser + " Version : " + caps.getCapability("version") );
 		System.out.println(("\n\t\tImplicit wait = " + getConfigProp("IMPLICIT_WAIT") + "\n"));
+		System.out.println("Driver Time out String " + driver.manage().timeouts().toString());
 
 		//driver.manage().window().maximize();
 		
