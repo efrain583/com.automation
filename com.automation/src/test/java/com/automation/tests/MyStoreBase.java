@@ -14,6 +14,9 @@ import org.testng.annotations.Parameters;
 import com.automation.pages.MyStoreMainPage;
 import com.automation.util.UtilKit;
 
+/*
+ * https://github.com/efrain583/com.automation.git
+ */
 public class MyStoreBase {
 
 	WebDriver driver;
