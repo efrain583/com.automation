@@ -3,12 +3,12 @@
 <suite name="MyStoreRegression" verbose="8" thread-count="2" parallel="tests"> <!-- 2 threads ( one per class ) -->
   <test name="MyStoreMainRegression">
     <classes>
-      <class name="tests.MyStoreMain"/>
+      <class name="com.automation.tests.MyStoreMain"/>
     </classes>
   </test> <!-- MyStoreMainRegression -->
   <test name="MyStoreOrderingRegression">
     <classes>
-      <class name="tests.MyStoreOrdering"/>
+      <class name="com.automation.tests.MyStoreOrdering"/>
     </classes>
   </test> <!-- MyStoreOrderingRegression -->
 </suite> <!-- MyStoreRegression -->
