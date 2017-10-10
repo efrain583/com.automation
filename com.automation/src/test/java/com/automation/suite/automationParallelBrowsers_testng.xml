@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="automationParallelBrowsers" verbose="8" thread-count="2" parallel="classes"> <!-- 2 threads ( one per class ) --> 
+<suite name="automationParallelBrowsers" verbose="8" thread-count="2" parallel="tests"> <!-- 2 threads ( one per class ) --> 
 
 	<test name="automationFirefox">
 		<parameter name="browser" value="firefox" />
