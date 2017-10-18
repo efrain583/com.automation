@@ -28,12 +28,13 @@ public class MyStoreBase {
 
 	// Optional parameter "browser", default value is "firefox"
 	// This optional parameter is set in the testng.xml file
+
 	@Parameters("browser")
 	@BeforeClass
 	public void startClass(@Optional("firefox") String browser) {
 		driver = UtilKit.initTest(project, application, browser, getClass().getName());
 		if (browser.equalsIgnoreCase("IE")) {
-			System.out.println("INITIAL URL :" + driver.getCurrentUrl());
+			System.out.println("BASE INITIAL URL :" + driver.getCurrentUrl());
 			if (!driver.getCurrentUrl().contains("authentication")) {
 				// TODO This is done because IE is not clearing cookies properly
 				// TODO then you need to sign out before you can sign in
@@ -44,9 +45,9 @@ public class MyStoreBase {
 		}
 
 	}
-	
+
 	@BeforeMethod
-	public void startMethod(Method method){
+	public void startMethod(Method method) {
 		UtilKit.initMethod(method.getName());
 	}
 
@@ -55,10 +56,10 @@ public class MyStoreBase {
 		UtilKit.terminateMethod(driver, result);
 		UtilKit.navegateToBaseURL(driver);
 	}
-	
+
 	@AfterClass
-	public void stopClass(){
+	public void stopClass() {
 		UtilKit.terminateTest(driver);
 	}
-	
+
 }
