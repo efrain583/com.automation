@@ -3,7 +3,7 @@
 <suite name="MyStoreSerialRegression" verbose="8"> 
   <test name="MyStoreMainSerialRegression">
     <classes>
-      <class name="com.automation.tests.MyStoreMain"/>
+<!--       <class name="com.automation.tests.MyStoreMain"/> -->
       <class name="com.automation.tests.MyStoreOrdering"/>
     </classes>
   </test> <!-- MyStoreMainSerialRegression -->

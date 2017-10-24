@@ -101,6 +101,9 @@ public class UtilKit {
 //			caps.setVersion(version);
 			driver = new FirefoxDriver(caps);
 			driver.manage().deleteAllCookies();
+			// The Implicit wait time is a property and apply for all findElement() calls
+			driver.manage().timeouts().implicitlyWait(Long.valueOf(getConfigProp("IMPLICIT_WAIT")), TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(Long.valueOf(getConfigProp("PAGE_LOAD_WAIT")), TimeUnit.SECONDS);
 			// navegate to application Url
 			navegateToBaseURL(driver);
 		}
@@ -121,6 +124,9 @@ public class UtilKit {
 			
 			//caps.setCapability("logLevel", "DEBUG");
 			driver = new InternetExplorerDriver(caps);
+			// The Implicit wait time is a property and apply for all findElement() calls
+			driver.manage().timeouts().implicitlyWait(Long.valueOf(getConfigProp("IMPLICIT_WAIT")), TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(Long.valueOf(getConfigProp("PAGE_LOAD_WAIT")), TimeUnit.SECONDS);
 			// IE hides cookies until the URL is accessed so
 			// We need to navegate to application Url first.
 			// then clear cookies, then Navegate again 
