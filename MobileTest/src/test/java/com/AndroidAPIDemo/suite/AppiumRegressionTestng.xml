@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="APIDemoRegression" verbose="8" parallel="false">
+  <test name="APIDemoRegressionBasic">
+    <classes>
+      <class name="com.AndroidAPIDemo.tests.AndroidAPIDemo"/>
+    </classes>
+  </test> <!-- APIDemoReggressionBasic -->
+</suite> <!-- APIDemoRegression-->
