@@ -27,5 +27,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/efrain/Java_practice_workspace/AutomationUtilities/target/AutomationUtilities-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="src" path="/AutomationUtilities"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
